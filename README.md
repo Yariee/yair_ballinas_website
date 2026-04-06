@@ -1,0 +1,1 @@
+This is a personal website I will be building using Claude Code as I'm new to learning the tool.
