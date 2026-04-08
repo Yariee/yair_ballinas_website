@@ -1,0 +1,168 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const projects = [
+  {
+    name: "TaskFlow",
+    url: "https://taskflow-hazel-five.vercel.app/",
+    description:
+      "Full-stack task management application with JWT authentication, category organization, real-time search, and an analytics dashboard showing completion rates and priority breakdowns.",
+    tags: ["React", "Flask", "SQLAlchemy", "Tailwind CSS", "JWT"],
+  },
+  {
+    name: "Weather Forecast App",
+    url: "https://weather-forecast-app-eight-steel.vercel.app/",
+    description:
+      "Responsive weather app with real-time data for 200k+ cities, 5-day forecasts, and auto-location detection via Geolocation API. Deployed to Vercel with a GitHub CI/CD pipeline and sub-second load times.",
+    tags: ["JavaScript", "Geolocation API", "CSS Grid", "Vercel"],
+  },
+];
+
+const skills = ["Python", "JavaScript", "C++", "HTML5", "CSS3", "React", "Flask", "Git"];
+---
+
+<Layout>
+  <Nav />
+
+  <main>
+    <!-- About -->
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I am an aspiring Software Engineer with a background in Python, JavaScript, C++,
+        HTML5, CSS3 and have experience using Git for collaborative development. I am
+        currently building maintainable web applications and automating data processes.
+        I've demonstrated leadership and communication through training and guiding team
+        memebers in high-volume retail operations and am seeking to transition these skills
+        into full-stack development.
+      </p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        {projects.map((p) => <ProjectCard {...p} />)}
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        {skills.map((s) => <li>{s}</li>)}
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Find Me</h2>
+      <p>I'm currently open to new opportunities. Feel free to reach out.</p>
+      <div class="contact-links">
+        <a href="https://github.com/Yariee" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/yair-ballinas/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/yair_ballinas/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Yair Ballinas</p>
+  </footer>
+</Layout>
+
+<style>
+  main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  section {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-child {
+    border-bottom: none;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  /* About */
+  #about {
+    padding-top: 5rem;
+  }
+
+  /* About */
+  #about p {
+    max-width: 62ch;
+  }
+
+  /* Projects */
+  .project-grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  /* Skills */
+  .skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .skills-list li {
+    font-size: 0.9rem;
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.85rem;
+    border-radius: 6px;
+  }
+
+  /* Contact */
+  #contact p {
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .contact-links a {
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+
+  .contact-links a:hover {
+    border-color: var(--accent);
+  }
+
+  /* Footer */
+  footer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 480px) {
+    #hero h1 { font-size: 2rem; }
+  }
+</style>

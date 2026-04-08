@@ -1,0 +1,103 @@
+---
+---
+<header>
+  <nav>
+    <a href="#about" class="nav-name">Yair Ballinas</a>
+    <div class="nav-right">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-light">☀️</span>
+        <span class="icon-dark">🌙</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById("theme-toggle");
+  btn?.addEventListener("click", () => {
+    const isDark = document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+</script>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+  }
+
+  nav {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.9rem;
+    transition: color 0.15s;
+  }
+
+  a:hover {
+    color: var(--accent);
+  }
+
+  button {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    line-height: 1;
+    color: var(--text);
+    transition: border-color 0.15s;
+  }
+
+  button:hover {
+    border-color: var(--accent);
+  }
+
+  /* Show sun in dark mode, moon in light mode */
+  .icon-light { display: none; }
+  .icon-dark  { display: inline; }
+
+  :global(.dark) .icon-light { display: inline; }
+  :global(.dark) .icon-dark  { display: none; }
+
+  @media (max-width: 480px) {
+    ul { gap: 1rem; }
+  }
+</style>

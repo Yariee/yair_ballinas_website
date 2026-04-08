@@ -1,0 +1,70 @@
+---
+interface Props {
+  title?: string;
+}
+const { title = "Yair Ballinas — Software Engineer" } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Prevent flash of wrong theme -->
+    <script is:inline>
+      const saved = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (saved === "dark" || (!saved && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --bg: #ffffff;
+    --text: #111111;
+    --muted: #555555;
+    --accent: #2563eb;
+    --border: #e5e7eb;
+    --card-bg: #f9fafb;
+    --max-width: 740px;
+  }
+
+  :root.dark {
+    --bg: #0f0f0f;
+    --text: #ededed;
+    --muted: #999999;
+    --accent: #60a5fa;
+    --border: #2a2a2a;
+    --card-bg: #1a1a1a;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 1rem;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  a {
+    color: var(--accent);
+  }
+</style>
