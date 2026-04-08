@@ -10,6 +10,8 @@ Software Engineer with a background in Python, JavaScript, C++, HTML5 and CSS3, 
 ## Links
 - GitHub: https://github.com/Yariee
 - LinkedIn: https://www.linkedin.com/in/yair-ballinas/
+- Instagram: https://www.instagram.com/yair_ballinas/
+- Email: ballinasyair@gmail.com
 
 ## Projects
 
@@ -28,7 +30,9 @@ Software Engineer with a background in Python, JavaScript, C++, HTML5 and CSS3, 
 
 ## Design Preferences
 - Style: Minimal / clean
-- Tech stack: Plain HTML/CSS/JS (decided — keep simple, no framework needed)
+- Tech stack: Astro (minimal template, plain CSS, no UI framework)
+- Resume: stored at public/Yair_Ballinas_Resume.pdf, opens in new tab from nav
+- Photography section: planned for the future, no timeline yet
 
 ## Site Goals
 Help recruiters find Yair, learn about him, see his projects, and know where to reach him.
